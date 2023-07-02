@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "types": ["lua-types/5.1"],
+    // "types": ["@typescript-to-lua/language-extensions", "lua-types/jit"],
+    "outDir": "lua/learn",
+    "baseUrl": "src",
+    "paths": {
+      "@@/*": ["*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "tstl": {
+    "noImplicitSelf": true,
+    "luaPlugins": [{ "name": "./plugins/fix-require-path.ts" }],
+    "luaTarget": "JIT"
+  }
+}
