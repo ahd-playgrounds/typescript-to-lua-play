@@ -2,8 +2,6 @@ import ts from "typescript";
 import * as tstl from "typescript-to-lua";
 
 const LUA_PREFIX = "learn";
-const REQUIRE_PATH_REGEX = /require\("(.+)"\)/g;
-const RAW_IMPORT_PATHS = ["lspconfig"]; // require paths that we don't want to transform
 
 const plugin: tstl.Plugin = {
   beforeEmit(
@@ -13,10 +11,12 @@ const plugin: tstl.Plugin = {
     result: tstl.EmitFile[]
   ) {
     for (const file of result) {
+      // const REQUIRE_PATH_REGEX = /require\("(src.+)"\)/g;
+      const REQUIRE_PATH_REGEX = /require\("(.+)"\)/g;
       file.code = file.code.replaceAll(
         REQUIRE_PATH_REGEX,
         (match, path: unknown) => {
-          if (typeof path !== "string" || RAW_IMPORT_PATHS.includes(path)) {
+          if (typeof path !== "string") {
             return match;
           }
 

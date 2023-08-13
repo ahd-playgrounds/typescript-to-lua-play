@@ -2,12 +2,16 @@
   "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
-    "types": ["lua-types/5.1"],
+    "types": ["@gkzhb/lua-types-nvim", "lua-types/5.1"],
     // "types": ["@typescript-to-lua/language-extensions", "lua-types/jit"],
     "outDir": "lua/learn",
     "baseUrl": "src",
     "paths": {
-      "@@/*": ["*"]
+      "@@/*": ["*"],
+      "io-ts/lib/*": ["io-ts/*"],
+      "io-ts": ["io-ts/index.ts"],
+      "fp-ts/lib/*": ["fp-ts/*"],
+      "fp-ts": ["fp-ts/index.ts"]
     }
   },
   "include": ["src/**/*"],

@@ -2,11 +2,14 @@
   "name": "tslua",
   "scripts": {
     "go": "yarn build && yarn nvim",
+    "go2": "yarn build && yarn nvim2",
     "build": "yarn clean && tstl",
     "nvim": "nvim --headless --noplugin -u spec.vim -l lua/learn/init.lua",
+    "nvim2": "nvim --headless --noplugin -u spec2.vim +qa",
     "clean": "rm -rf lua"
   },
   "devDependencies": {
+    "@gkzhb/lua-types-nvim": "^0.0.7",
     "@tsconfig/node18": "^18.2.0",
     "lua-types": "^2.13.1",
     "ts-node": "^10.9.1",
