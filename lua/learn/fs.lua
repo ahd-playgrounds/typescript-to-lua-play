@@ -7,99 +7,103 @@ local TypeError = ____lualib.TypeError
 local URIError = ____lualib.URIError
 local __TS__Promise = ____lualib.__TS__Promise
 local __TS__New = ____lualib.__TS__New
-local __TS__AsyncAwaiter = ____lualib.__TS__AsyncAwaiter
-local __TS__Await = ____lualib.__TS__Await
 local ____exports = {}
-local ____result = require("learn.result")
-local err = ____result.err
-local ok = ____result.ok
+local ____neverthrow = require("learn.libs.neverthrow.index")
+local fromPromise = ____neverthrow.fromPromise
 local uv = vim.loop
+local function identity(a)
+    return a
+end
 function ____exports.openFile(path)
-    return __TS__AsyncAwaiter(function(____awaiter_resolve)
-        return ____awaiter_resolve(
-            nil,
-            __TS__New(
-                __TS__Promise,
-                function(____, resolve)
-                    uv.fs_open(
-                        path,
-                        "r",
-                        438,
-                        function(e, fd)
-                            resolve(
-                                nil,
-                                e and err(e) or ok(fd)
-                            )
+    return fromPromise(
+        nil,
+        __TS__New(
+            __TS__Promise,
+            function(____, resolve, reject)
+                uv.fs_open(
+                    path,
+                    "r",
+                    438,
+                    function(e, fd)
+                        local ____e_0
+                        if e then
+                            ____e_0 = reject(nil, e)
+                        else
+                            ____e_0 = resolve(nil, fd)
                         end
-                    )
-                end
-            )
-        )
-    end)
+                    end
+                )
+            end
+        ),
+        identity
+    )
 end
 function ____exports.fstat(fd)
-    return __TS__AsyncAwaiter(function(____awaiter_resolve)
-        return ____awaiter_resolve(
-            nil,
-            __TS__New(
-                __TS__Promise,
-                function(____, resolve)
-                    uv.fs_fstat(
-                        fd,
-                        function(e, fd)
-                            resolve(
-                                nil,
-                                e and err(e) or ok(fd)
-                            )
+    return fromPromise(
+        nil,
+        __TS__New(
+            __TS__Promise,
+            function(____, resolve, reject)
+                uv.fs_fstat(
+                    fd,
+                    function(e, fd)
+                        local ____e_1
+                        if e then
+                            ____e_1 = reject(nil, e)
+                        else
+                            ____e_1 = resolve(nil, fd)
                         end
-                    )
-                end
-            )
-        )
-    end)
+                    end
+                )
+            end
+        ),
+        identity
+    )
 end
 function ____exports.fsClose(fd)
-    return __TS__AsyncAwaiter(function(____awaiter_resolve)
-        return ____awaiter_resolve(
-            nil,
-            __TS__New(
-                __TS__Promise,
-                function(____, resolve)
-                    uv.fs_close(
-                        fd,
-                        function(e)
-                            resolve(
-                                nil,
-                                e and err(e) or ok(nil)
-                            )
+    return fromPromise(
+        nil,
+        __TS__New(
+            __TS__Promise,
+            function(____, resolve, reject)
+                uv.fs_close(
+                    fd,
+                    function(e)
+                        local ____e_2
+                        if e then
+                            ____e_2 = reject(nil, e)
+                        else
+                            ____e_2 = resolve(nil, nil)
                         end
-                    )
-                end
-            )
-        )
-    end)
+                    end
+                )
+            end
+        ),
+        identity
+    )
 end
 function ____exports.fsRead(fd, size)
-    return __TS__AsyncAwaiter(function(____awaiter_resolve)
-        return ____awaiter_resolve(
-            nil,
-            __TS__New(
-                __TS__Promise,
-                function(____, resolve)
-                    uv.fs_read(
-                        fd,
-                        size,
-                        0,
-                        function(e, fd)
-                            resolve(
-                                nil,
-                                e and err(e) or ok(fd)
-                            )
+    return fromPromise(
+        nil,
+        __TS__New(
+            __TS__Promise,
+            function(____, resolve, reject)
+                uv.fs_read(
+                    fd,
+                    size,
+                    0,
+                    function(e, fd)
+                        local ____e_3
+                        if e then
+                            ____e_3 = reject(nil, e)
+                        else
+                            ____e_3 = resolve(nil, fd)
                         end
-                    )
-                end
-            )
-        )
-    end)
+                    end
+                )
+            end
+        ),
+        identity
+    )
 end
 return ____exports

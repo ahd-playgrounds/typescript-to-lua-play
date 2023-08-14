@@ -1,40 +1,53 @@
-import { Result, err, ok } from "./result";
+import { fromPromise, ResultAsync } from "neverthrow";
 
 const uv = vim.loop;
 
-export async function openFile(path: string): Promise<Result<number, Error>> {
-  return new Promise((resolve) => {
-    uv.fs_open(path, "r", 438, function (e, fd) {
-      resolve(e ? err(e) : ok(fd));
-    });
-  });
+type UVRes<D> = ResultAsync<D, UVErr>;
+
+function identity(a: any): UVErr {
+  return a;
 }
 
-export async function fstat(
-  fd: number
-): Promise<Result<{ size: number }, Error>> {
-  return new Promise((resolve) => {
-    uv.fs_fstat(fd, function (e, fd) {
-      resolve(e ? err(e) : ok(fd));
-    });
-  });
+export function openFile(path: string): UVRes<Fd> {
+  return fromPromise(
+    new Promise((resolve, reject) => {
+      uv.fs_open(path, "r", 438, function (e, fd) {
+        e ? reject(e) : resolve(fd);
+      });
+    }),
+    identity
+  );
 }
 
-export async function fsClose(fd: number): Promise<Result<null, Error>> {
-  return new Promise((resolve) => {
-    uv.fs_close(fd, function (e) {
-      resolve(e ? err(e) : ok(null));
-    });
-  });
+export function fstat(fd: number): UVRes<Stat> {
+  return fromPromise(
+    new Promise<Stat>((resolve, reject) => {
+      uv.fs_fstat(fd, function (e, fd) {
+        e ? reject(e) : resolve(fd);
+      });
+    }),
+    identity
+  );
 }
 
-export async function fsRead(
-  fd: number,
-  size: number
-): Promise<Result<string, Error>> {
-  return new Promise((resolve) => {
-    uv.fs_read(fd, size, 0, function (e, fd) {
-      resolve(e ? err(e) : ok(fd));
-    });
-  });
+export function fsClose(fd: number): UVRes<null> {
+  return fromPromise(
+    new Promise((resolve, reject) => {
+      uv.fs_close(fd, function (e) {
+        e ? reject(e) : resolve(null);
+      });
+    }),
+    identity
+  );
+}
+
+export function fsRead(fd: number, size: number): UVRes<string> {
+  return fromPromise(
+    new Promise((resolve, reject) => {
+      uv.fs_read(fd, size, 0, function (e, fd) {
+        e ? reject(e) : resolve(fd);
+      });
+    }),
+    identity
+  );
 }

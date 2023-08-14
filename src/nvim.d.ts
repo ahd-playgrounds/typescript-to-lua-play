@@ -1,4 +1,8 @@
-type CB = (err: undefined | Error, d?: any) => void;
+type UVErr = Error;
+
+interface Cb<Data> {
+  (err: undefined | UVErr, data: Data): void;
+}
 
 /**
  * uv_handle_t is the base type for all libuv handle types. All API functions defined here work with any handle type.
@@ -15,6 +19,10 @@ interface BaseHandle {
   close(): void;
 }
 
+interface Stat {
+  size: number;
+}
+
 interface Server extends BaseHandle {
   bind(ip: string, port: number): void;
   listen(port: number, cb: (e: Error | undefined) => void): void;
@@ -25,9 +33,12 @@ interface Server extends BaseHandle {
 }
 
 interface Timer extends BaseHandle {
-  start(duration: number, interval: number, cb: CB): void;
+  start(duration: number, interval: number, cb: Cb): void;
   stop(): void;
 }
+
+/** file descriptor, make nominal later */
+type Fd = number;
 
 /** @noSelf **/
 interface UV {
@@ -35,10 +46,10 @@ interface UV {
   loop_configure(s: string, y: string): void;
   run(mode?: "default" | "once" | "nowait"): void;
   stop(): void;
-  fs_open(path: string, f: string, n: number, cb: CB): void;
-  fs_fstat(fileDescriptor: number, cb: CB): void;
-  fs_read(fileDescriptor: number, size: number, n: number, cb: CB): void;
-  fs_close(fileDescriptor: number, cb: CB): void;
+  fs_open(path: string, f: string, n: number, cb: Cb<Fd>): void;
+  fs_fstat(fileDescriptor: Fd, cb: Cb<Stat>): void;
+  fs_read(fileDescriptor: Fd, size: number, n: number, cb: Cb<string>): void;
+  fs_close(fileDescriptor: Fd, cb: Cb<never>): void;
   new_timer(): Timer;
   loop_mode(): string | undefined;
   loop_alive(): boolean;
@@ -52,4 +63,7 @@ interface IVim {
   /** @noSelf **/
   cmd(cmd: string): void;
   loop: UV;
+  json: {
+    decode(str: string, arg?: any): unkownn;
+  };
 }

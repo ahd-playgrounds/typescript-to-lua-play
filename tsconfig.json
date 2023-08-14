@@ -8,10 +8,7 @@
     "baseUrl": "src",
     "paths": {
       "@@/*": ["*"],
-      "io-ts/lib/*": ["io-ts/*"],
-      "io-ts": ["io-ts/index.ts"],
-      "fp-ts/lib/*": ["fp-ts/*"],
-      "fp-ts": ["fp-ts/index.ts"]
+      "neverthrow": ["libs/neverthrow/index.ts"]
     }
   },
   "include": ["src/**/*"],
