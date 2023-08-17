@@ -1,5 +1,4 @@
 node_modules
-lua/learn
 
 .yarn/*
 .yarn/cache

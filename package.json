@@ -23,6 +23,7 @@
     "node": "18.16.1"
   },
   "dependencies": {
+    "tstl-result": "codethread/tstl-result",
     "tstl-validate": "codethread/tstl-validate#4f740a225f5840ee990ae4aa195a1fdd0b4efba1"
   }
 }
