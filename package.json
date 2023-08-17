@@ -4,6 +4,7 @@
     "go": "yarn build && yarn nvim",
     "go2": "yarn build && yarn nvim2",
     "build": "yarn clean && tstl",
+    "vendor": "in here we need to pull out all node_modules and stick them somewhere",
     "nvim": "nvim --headless --noplugin -u spec.vim -l lua/learn/init.lua",
     "nvim2": "nvim --headless --noplugin -u spec2.vim +qa",
     "clean": "rm -rf lua"
@@ -11,13 +12,17 @@
   "devDependencies": {
     "@gkzhb/lua-types-nvim": "^0.0.7",
     "@tsconfig/node18": "^18.2.0",
+    "@types/node": "^18.16.1",
     "lua-types": "^2.13.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6",
-    "typescript-to-lua": "^1.16.2"
+    "typescript-to-lua": "^1.17.0"
   },
   "packageManager": "yarn@3.6.0",
   "volta": {
     "node": "18.16.1"
+  },
+  "dependencies": {
+    "tstl-validate": "codethread/tstl-validate#4f740a225f5840ee990ae4aa195a1fdd0b4efba1"
   }
 }

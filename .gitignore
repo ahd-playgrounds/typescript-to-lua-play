@@ -1,4 +1,5 @@
 node_modules
+lua/learn
 
 .yarn/*
 .yarn/cache
@@ -8,4 +9,3 @@ node_modules
 !.yarn/sdks
 !.yarn/versions
 
-libs

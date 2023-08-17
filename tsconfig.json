@@ -7,8 +7,9 @@
     "outDir": "lua/learn",
     "baseUrl": "src",
     "paths": {
-      "@@/*": ["*"],
-      "neverthrow": ["libs/neverthrow/index.ts"]
+      "@@/*": ["*"]
+      // "valibot": ["libs/valibot/index.ts"],
+      // "neverthrow": ["libs/neverthrow/index.ts"]
     }
   },
   "include": ["src/**/*"],

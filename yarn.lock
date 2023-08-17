@@ -80,6 +80,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^18.16.1":
+  version: 18.17.5
+  resolution: "@types/node@npm:18.17.5"
+  checksum: b8c658a99234b99425243c324b641ed7b9ceb6bee6b06421fdc9bb7c58f9a5552e353225cc549e6982462ac384abe1985022ed76e2e4728797f59b21f659ca2b
+  languageName: node
+  linkType: hard
+
 "@typescript-to-lua/language-extensions@npm:1.0.0":
   version: 1.0.0
   resolution: "@typescript-to-lua/language-extensions@npm:1.0.0"
@@ -278,14 +285,32 @@ __metadata:
   dependencies:
     "@gkzhb/lua-types-nvim": ^0.0.7
     "@tsconfig/node18": ^18.2.0
+    "@types/node": ^18.16.1
     lua-types: ^2.13.1
     ts-node: ^10.9.1
+    tstl-validate: "codethread/tstl-validate#4f740a225f5840ee990ae4aa195a1fdd0b4efba1"
     typescript: ^5.1.6
-    typescript-to-lua: ^1.16.2
+    typescript-to-lua: ^1.17.0
   languageName: unknown
   linkType: soft
 
-"typescript-to-lua@npm:^1.16.2":
+"tstl-result@github:codethread/tstl-result":
+  version: 0.0.1
+  resolution: "tstl-result@https://github.com/codethread/tstl-result.git#commit=d030aa71be1cc1f12a9f30cb713853ce50f5dd2d"
+  checksum: 1e87da1ba7b43226c2b47669e6dbeef57d32b537a5f8f57af351c89bd909bdb42f9bfe2eb8944ba899c4b871abe67bb1d418a722749fb521e4b1af9c8de2a641
+  languageName: node
+  linkType: hard
+
+"tstl-validate@codethread/tstl-validate#4f740a225f5840ee990ae4aa195a1fdd0b4efba1":
+  version: 0.0.2
+  resolution: "tstl-validate@https://github.com/codethread/tstl-validate.git#commit=4f740a225f5840ee990ae4aa195a1fdd0b4efba1"
+  dependencies:
+    tstl-result: "github:codethread/tstl-result"
+  checksum: 4eec5361ab6d47d30ae8908f1e0bc2f5dc6d52a35fa4771e8b775f1535d8e76945e0b036bacaa53cb767fd3ce7f80c8d2f0cf028bee93834af8adc2fa42a74c9
+  languageName: node
+  linkType: hard
+
+"typescript-to-lua@npm:^1.17.0":
   version: 1.17.0
   resolution: "typescript-to-lua@npm:1.17.0"
   dependencies:
