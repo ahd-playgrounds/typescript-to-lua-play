@@ -4,7 +4,7 @@
   "compilerOptions": {
     "types": ["@gkzhb/lua-types-nvim", "lua-types/5.1"],
     // "types": ["@typescript-to-lua/language-extensions", "lua-types/jit"],
-    "outDir": "lua/learn",
+    "outDir": "lua/dev",
     "baseUrl": "src",
     "paths": {
       "@@/*": ["*"]

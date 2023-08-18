@@ -1,5 +1,7 @@
 node_modules
 
+lua/dev
+
 .yarn/*
 .yarn/cache
 !.yarn/patches

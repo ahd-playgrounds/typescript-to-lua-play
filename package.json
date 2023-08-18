@@ -1,6 +1,7 @@
 {
   "name": "tslua",
   "scripts": {
+    "pub": "./scripts/publish.sh",
     "go": "yarn build && yarn nvim",
     "go2": "yarn build && yarn nvim2",
     "build": "yarn clean && tstl",
@@ -23,7 +24,7 @@
     "node": "18.16.1"
   },
   "dependencies": {
-    "tstl-result": "codethread/tstl-result",
-    "tstl-validate": "codethread/tstl-validate#4f740a225f5840ee990ae4aa195a1fdd0b4efba1"
+    "@codethread/tstl-result": "^0.0.2",
+    "@codethread/tstl-validate": "^0.0.3"
   }
 }

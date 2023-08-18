@@ -5,6 +5,22 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@codethread/tstl-result@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "@codethread/tstl-result@npm:0.0.2"
+  checksum: 9e6bbe340e8c30f00cc390199f260e2d8b6895fa80ac5c63d07f14c3766f9741231f5d4eb238f22bcf284820040700a62f63646430dc69b4a6325906247f2fa1
+  languageName: node
+  linkType: hard
+
+"@codethread/tstl-validate@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@codethread/tstl-validate@npm:0.0.3"
+  dependencies:
+    "@codethread/tstl-result": ^0.0.2
+  checksum: 47f1c9f02a9e59982d4288c270234f8e69b80d9e3778126ca8eb74c373cb92fcd7787a73a088bac7ab92ca8fa7ab6adef8d9e13685bd945954c7bc88ce698a3e
+  languageName: node
+  linkType: hard
+
 "@cspotcode/source-map-support@npm:^0.8.0":
   version: 0.8.1
   resolution: "@cspotcode/source-map-support@npm:0.8.1"
@@ -283,33 +299,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "tslua@workspace:."
   dependencies:
+    "@codethread/tstl-result": ^0.0.2
+    "@codethread/tstl-validate": ^0.0.3
     "@gkzhb/lua-types-nvim": ^0.0.7
     "@tsconfig/node18": ^18.2.0
     "@types/node": ^18.16.1
     lua-types: ^2.13.1
     ts-node: ^10.9.1
-    tstl-result: codethread/tstl-result
-    tstl-validate: "codethread/tstl-validate#4f740a225f5840ee990ae4aa195a1fdd0b4efba1"
     typescript: ^5.1.6
     typescript-to-lua: ^1.17.0
   languageName: unknown
   linkType: soft
-
-"tstl-result@codethread/tstl-result, tstl-result@github:codethread/tstl-result":
-  version: 0.0.1
-  resolution: "tstl-result@https://github.com/codethread/tstl-result.git#commit=d030aa71be1cc1f12a9f30cb713853ce50f5dd2d"
-  checksum: 1e87da1ba7b43226c2b47669e6dbeef57d32b537a5f8f57af351c89bd909bdb42f9bfe2eb8944ba899c4b871abe67bb1d418a722749fb521e4b1af9c8de2a641
-  languageName: node
-  linkType: hard
-
-"tstl-validate@codethread/tstl-validate#4f740a225f5840ee990ae4aa195a1fdd0b4efba1":
-  version: 0.0.2
-  resolution: "tstl-validate@https://github.com/codethread/tstl-validate.git#commit=4f740a225f5840ee990ae4aa195a1fdd0b4efba1"
-  dependencies:
-    tstl-result: "github:codethread/tstl-result"
-  checksum: 4eec5361ab6d47d30ae8908f1e0bc2f5dc6d52a35fa4771e8b775f1535d8e76945e0b036bacaa53cb767fd3ce7f80c8d2f0cf028bee93834af8adc2fa42a74c9
-  languageName: node
-  linkType: hard
 
 "typescript-to-lua@npm:^1.17.0":
   version: 1.17.0

@@ -1,4 +1,4 @@
-import { fromPromise, ResultAsync } from "tstl-result";
+import { fromPromise, ResultAsync } from "@codethread/tstl-result";
 
 const uv = vim.loop;
 

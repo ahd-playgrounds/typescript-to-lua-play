@@ -1,4 +1,4 @@
-import * as v from "tstl-validate";
+import * as v from "@codethread/tstl-validate";
 import { log } from "./utils";
 import { fsClose, fsRead, fstat, openFile } from "./fs";
 import { clearInterval, setInterval, wait } from "./timer";
